@@ -1,0 +1,69 @@
+body, html {
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+
+.titulo {
+	background-color: lightblue;
+	text-align: center;
+	padding: 15px;
+	font-size: 20px;
+	margin: 5px;
+}
+
+.titulo #cerrar-sesion {
+	float: right;
+}
+
+.titulo #cerrar-sesion:hover {
+	cursor: pointer;
+}
+
+#panel-qr {
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+	background-color: lightblue;
+}
+
+.panel {
+	display: grid;
+	grid-template-areas:
+		'titulo titulo titulo titulo titulo'
+		'form lista lista lista lista';
+	grid-gap: 5px;
+	padding: 5px;
+
+	margin: 5px;
+	background-color: lightblue;
+}
+
+.panel .panel-titulo {
+	grid-area: titulo;
+
+	font-weight: bold;
+	font-size: 18;
+}
+
+.panel .form {
+	grid-area: form;
+	
+	border: 1px solid white;
+}
+
+.panel .form input,
+.panel .form button {
+	display: block;
+	margin: 5px auto;
+}
+
+.panel .lista {
+	grid-area: lista;
+	
+	border: 1px solid white;
+}
+
+.panel .lista tr {
+	text-align: center;
+}

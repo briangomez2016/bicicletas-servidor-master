@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+	<meta charset="utf-8">
+
+	<title>Administrador</title>
+
+	<link rel="stylesheet" href="css/admin_main.css">
+
+	<script type="text/javascript" src="js/jQuery.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+</head>
+<body>
+	<div class="titulo">Administrador <button id="cerrar-sesion">Cerrar sesión</button></div>
+
+	<div id="panel-qr"><img id="codigo-qr" src=""></div>
+
+	<div class="panel">
+		<div class="panel-titulo">Generar QR</div>
+		<div class="form">
+			<input type="text" placeholder="Nombre" id="texto_qr">
+			<button id="btn-generar">Generar</button>
+		</div>
+	</div>
+
+	<div class="panel">
+		<div class="panel-titulo">Bicicleteros</div>
+		<div class="form">
+			<input type="text" placeholder="Nombre" id="nombre">
+			<input type="text" placeholder="Ubicación" id="ubicacion">
+			<input type="text" placeholder="Latitud" id="latitud">
+			<input type="text" placeholder="Longitud" id="longitud">
+			<p id="msj-error"></p>
+			<button id="btn-agregar">Agregar</button>
+		</div>
+		<table class="lista">
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Ubicación</th>
+				<th>Coordenadas</th>
+				<th>Opciones</th>
+			</tr>
+			<tbody id="listado-bicicleteros"></tbody>
+		</table>
+	</div>
+
+	<div class="panel">
+		<div class="panel-titulo">Bicicletas</div>
+		<div class="form">
+			<input type="text" placeholder="ID Bicicletero" id="bicicletero">
+			<input type="text" placeholder="Posición" id="posicion">
+			<p id="msj-error2"></p>
+			<button id="btn-agregar-bicicleta">Agregar</button>
+		</div>
+		<table class="lista">
+			<tr>
+				<th>ID</th>
+				<th>Bicicletero</th>
+				<th>Posición</th>
+				<th>Opciones</th>
+			</tr>
+			<tbody id="listado-bicicletas"></tbody>
+		</table>
+	</div>
+
+	<template id="template-bicicletero">
+		<tr class="bicicletero">
+			<td class="id"></td>
+			<td class="nombre"></td>
+			<td class="ubicacion"></td>
+			<td class="coordenadas"></td>
+			<td class="opciones">
+				<button class="boton-ver-qr">Ver QR</button>
+				<button class="boton-borrar">Borrar</button>
+			</td>
+		</tr>
+	</template>
+
+	<template id="template-bicicleta">
+		<tr class="bicicleta">
+			<td class="id"></td>
+			<td class="bicicletero"></td>
+			<td class="posicion"></td>
+			<td class="opciones">
+				<button class="boton-ver-qr">Ver QR</button>
+				<button class="boton-borrar">Borrar</button>
+			</td>
+		</tr>
+	</template>
+</body>
+</html>

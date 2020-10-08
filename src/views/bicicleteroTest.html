@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bicicletero test</title>
+
+	<script type="text/javascript" src="js/jQuery.js"></script>
+</head>
+<body>
+	<input id="identificador" type="text">
+	<button id="btn-conectar">Conectar</button>
+
+	<div>
+		Permite abrir bicicleta? <input id="ok" type="checkbox" checked="">
+	</div>
+
+	<script type="text/javascript" src="./socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+		const socket = io();
+
+		$( '#btn-conectar' ).click( () => {
+			socket.emit( 'identificador', $( '#identificador' ).val() );
+		} );
+
+		socket.on( 'abrir', ( data ) => {
+			console.log( 'abrir', data );
+
+			if ( $( '#ok' ).prop( 'checked' ) )
+				socket.emit( data.respuesta, {
+					state: 'OK',
+					message: ''
+				} );
+			else
+				socket.emit( data.respuesta, {
+					state: 'ERR',
+					message: 'No se pudo desbloquear la bicicleta.'
+				} );
+		} );
+
+		socket.on( 'cerrar', ( data ) => {
+			console.log( 'cerrar', data );
+
+			if ( $( '#ok' ).prop( 'checked' ) )
+				socket.emit( data.respuesta, {
+					state: 'OK',
+					message: ''
+				} );
+			else
+				socket.emit( data.respuesta, {
+					state: 'ERR',
+					message: 'No se pudo bloquear la bicicleta.'
+				} );
+		} );
+	</script>
+</body>
+</html>
